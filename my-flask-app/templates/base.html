@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Flask App{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+</head>
+
+<body class="bg-base-200 min-h-screen flex flex-col">
+
+    <div class="navbar bg-base-100 shadow-sm">
+        <div class="flex-1">
+            <a class="btn btn-ghost text-xl">DaisyUI Flask</a>
+        </div>
+    </div>
+
+    <main class="flex-grow container mx-auto p-4">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="footer footer-center p-4 bg-base-300 text-base-content">
+        <aside>
+            <p>Copyright © 2026 - All right reserved</p>
+        </aside>
+    </footer>
+
+</body>
+
+</html>
