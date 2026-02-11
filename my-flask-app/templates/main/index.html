@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="min-h-screen bg-base-200">
+    <!-- Main Container -->
+    <div class="container mx-auto px-4 py-12">
+
+        <!-- Hero Section -->
+        <section class="mb-16">
+            <div class="hero bg-base-100 rounded-xl shadow-xl py-10">
+                <div class="hero-content text-center">
+                    <div class="max-w-md">
+                        <h1 class="text-5xl font-bold text-primary">Hello Flask!</h1>
+                        <p class="py-6">
+                            โปรเจกต์นี้ใช้ Flask + Tailwind v4 + DaisyUI
+                            ติดตั้งแบบถูกต้องตามหลัก Best Practice
+                        </p>
+                        {% if not current_user.is_authenticated %}
+                        <div class="flex gap-3 justify-center">
+                            <a href="{{ url_for('auth.login') }}" class="btn btn-primary">เข้าสู่ระบบ</a>
+                            <a href="{{ url_for('auth.register') }}"
+                                class="btn btn-outline btn-secondary">สมัครสมาชิก</a>
+                        </div>
+                        {% else %}
+                        <p class="text-lg font-semibold">ยินดีต้อนรับ {{ current_user.username }} 👋</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-base-content">Key Features</h2>
+                <p class="text-base-content/70 mt-2">ทุกสิ่งที่คุณต้องการเพื่อสร้างเว็บแอปพลิเคชันที่ยอดเยี่ยม</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="card-body">
+                        <h2 class="card-title text-lg">🎨 DaisyUI</h2>
+                        <p class="text-sm">UI Components ที่สวยงามและเข้าถึงได้</p>
+                    </div>
+                </div>
+                <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="card-body">
+                        <h2 class="card-title text-lg">⚡ Tailwind CSS</h2>
+                        <p class="text-sm">CSS Framework ที่ใช้ Utility-first</p>
+                    </div>
+                </div>
+                <div class="card bg-base-100 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="card-body">
+                        <h2 class="card-title text-lg">✅ Blueprint</h2>
+                        <p class="text-sm">โครงสร้างแบบ Best Practice พร้อมใช้</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Pricing Section -->
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-base-content">แพคเกจราคา</h2>
+                <p class="text-base-content/70 mt-2">เลือกแพคเกจที่เหมาะสมกับความต้องการของคุณ</p>
+            </div>
+            <div class="flex justify-center">
+                <div class="card w-full sm:w-96 bg-base-100 shadow-lg">
+                    <div class="card-body">
+                        <span class="badge badge-warning badge-sm mb-2">ยอดนิยม</span>
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="text-3xl font-bold">Premium</h2>
+                            <span class="text-2xl font-semibold text-primary">฿299/เดือน</span>
+                        </div>
+                        <ul class="flex flex-col gap-3 text-sm mb-6">
+                            <li class="flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-success flex-shrink-0"
+                                    fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
+                                </svg>
+                                <span>คุณสมบัติที่ครบครัน</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-success flex-shrink-0"
+                                    fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
+                                </svg>
+                                <span>รองรับ Backend ที่แข็งแกร่ง</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-success flex-shrink-0"
+                                    fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
+                                </svg>
+                                <span>ระบบขนาดใหญ่</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-success flex-shrink-0"
+                                    fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
+                                </svg>
+                                <span>Website Response เร็ว</span>
+                            </li>
+                            <li class="flex items-center gap-2 opacity-50">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="w-5 h-5 text-base-content/50 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                                <span class="line-through">Enterprise Support</span>
+                            </li>
+                        </ul>
+                        <button class="btn btn-primary btn-block">สมัครใจนี้</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center py-12 px-4">
+    <div class="w-full max-w-md">
+        <div class="card bg-base-100 shadow-2xl border border-base-200">
+            <div class="card-body">
+                <div class="text-center mb-8">
+                    <h2 class="card-title text-3xl justify-center mb-2">เข้าสู่ระบบ</h2>
+                    <p class="text-base-content text-opacity-70">กรุณากรอกข้อมูลเพื่อเข้าสู่ระบบ</p>
+                </div>
+
+                <form method="POST" class="space-y-4">
+                    {{ form.hidden_tag() }}
+
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text font-medium">ชื่อผู้ใช้</span>
+                        </label>
+                        {{ form.username(class="input input-bordered w-full input-md", placeholder="กรอกชื่อผู้ใช้") }}
+                    </div>
+
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text font-medium">รหัสผ่าน</span>
+                        </label>
+                        {{ form.password(class="input input-bordered w-full input-md", placeholder="กรอกรหัสผ่าน") }}
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label cursor-pointer justify-start gap-3">
+                            <input type="checkbox" class="checkbox checkbox-primary" />
+                            <span class="label-text">จำฉันไว้</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-full btn-md mt-6">{{ form.submit.label }}</button>
+                </form>
+
+                <div class="divider my-4">หรือ</div>
+
+                <div class="space-y-2">
+                    <p class="text-center text-sm text-base-content text-opacity-70">
+                        ยังไม่มีบัญชี?
+                        <a href="{{ url_for('auth.register') }}" class="link link-primary font-semibold">สมัครสมาชิก</a>
+                    </p>
+                    <a href="#"
+                        class="link link-sm text-center block text-base-content text-opacity-60 hover:text-opacity-100">ลืมรหัสผ่าน?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

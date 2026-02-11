@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center py-12 px-4">
+    <div class="w-full max-w-md">
+        <div class="card bg-base-100 shadow-2xl border border-base-200">
+            <div class="card-body">
+                <div class="text-center mb-8">
+                    <h2 class="card-title text-3xl justify-center mb-2">สมัครสมาชิก</h2>
+                    <p class="text-base-content text-opacity-70">สร้างบัญชีใหม่ของคุณในเพียงไม่กี่ขั้นตอน</p>
+                </div>
+
+                <form method="POST" class="space-y-4">
+                    {{ form.hidden_tag() }}
+
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text font-medium">ชื่อผู้ใช้</span>
+                        </label>
+                        {{ form.username(class="input input-bordered w-full input-md", placeholder="เลือกชื่อผู้ใช้") }}
+                        <label class="label">
+                            <span class="label-text-alt text-xs text-base-content text-opacity-60">ความยาว 4-25
+                                ตัวอักษร</span>
+                        </label>
+                    </div>
+
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text font-medium">อีเมล</span>
+                        </label>
+                        {{ form.email(class="input input-bordered w-full input-md", placeholder="example@mail.com") }}
+                    </div>
+
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text font-medium">รหัสผ่าน</span>
+                        </label>
+                        {{ form.password(class="input input-bordered w-full input-md", placeholder="ตั้งรหัสผ่าน") }}
+                        <label class="label">
+                            <span class="label-text-alt text-xs text-base-content text-opacity-60">อย่างน้อย 6
+                                ตัวอักษร</span>
+                        </label>
+                    </div>
+
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text font-medium">ยืนยันรหัสผ่าน</span>
+                        </label>
+                        {{ form.confirm_password(class="input input-bordered w-full input-md",
+                        placeholder="ยืนยันรหัสผ่าน") }}
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label cursor-pointer justify-start gap-3">
+                            <input type="checkbox" class="checkbox checkbox-primary" required />
+                            <span class="label-text text-sm">ฉันยอมรับ <a href="#"
+                                    class="link link-primary link-sm">เงื่อนไขการใช้บริการ</a></span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-secondary w-full btn-md mt-6">{{ form.submit.label }}</button>
+                </form>
+
+                <div class="divider my-4"></div>
+
+                <p class="text-center text-sm text-base-content text-opacity-70">
+                    มีบัญชีแล้ว?
+                    <a href="{{ url_for('auth.login') }}" class="link link-primary font-semibold">เข้าสู่ระบบ</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
