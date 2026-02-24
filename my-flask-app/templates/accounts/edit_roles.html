@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mx-auto p-4 flex justify-center mt-10">
+
+    <div class="card w-full max-w-md bg-base-100 shadow-xl border border-base-200">
+        <div class="card-body">
+            <h2 class="card-title text-xl mb-4 border-b pb-2">
+                แก้สิทธิ์: <span class="text-primary">{{ user.username }}</span>
+            </h2>
+
+            <form method="post" action="">
+                {{ form.hidden_tag() }}
+
+                <div class="form-control w-full mb-6">
+                    <label class="label" for="roles">
+                        <span class="label-text font-medium text-base">เลือก Roles</span>
+                        <span class="label-text-alt text-gray-500">(กด Ctrl หรือ Cmd เพื่อเลือกหลายค่า)</span>
+                    </label>
+
+                    {{ form.roles(class="select select-bordered w-full h-24", size=2) }}
+                </div>
+
+                <div class="card-actions justify-end mt-4">
+                    <a href="{{ url_for('accounts.users') }}" class="btn btn-ghost">ยกเลิก</a>
+                    {{ form.submit(class="btn btn-primary px-8", value="บันทึก") }}
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
